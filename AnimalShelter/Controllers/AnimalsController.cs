@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace AnimalShelter.Controllers
 {
-  [Route("api/[controller")]
+  [Route("api/[controller]")]
   [ApiController]
   // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
   public class AnimalsController : ControllerBase
