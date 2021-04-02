@@ -47,10 +47,50 @@ _This project is the backend of an API for an animal shelter. It provides abilit
 * To start a server enter the command `dotnet run` in the terminal 
 * Once the server is running, open postman or a similar program to start making API calls (Instructions on how to use API are down below)
 
-
 ## How to use the API
-### Queries
 ### Login/Registration
+### Queries
+The API accepts several different GET queries once a user is registered and logged in:
+* `?name=insert_pet_name_here` : returns animal(s) with specific name
+  * Example Call: `http://localhost:5000/api/animals/?name="toby"`
+* `?gender=insert_gender_here` : returns animals of a specific gender
+  * Example Call: `http://localhost:5000/api/animals/?gender="female"`
+* `?species=insert_species_here` : returns animals of a specific species
+  * Example Call: `http://localhost:5000/api/animals/?species="dog"`
+* `?personality=insert_personality_here` : returns all animals with a certain personality
+  * Example Call: `http://localhost:5000/api/animals/?personality="sweet"`    
+
+Users are also able to make generic GET calls
+* A call without a query will return all animals
+  * Example Call: `http://localhost:5000/api/animals`
+* A call with an id number will return a specific animal attatched to that id
+  * Example Call: `http://localhost:5000/api/animals/1`
+
+### Create, Update and Delete entries  
+Users are able to make a POST call that can create animals 
+  * To do so make sure the call you are making is a POST call
+  * Next make the body of the call raw and in JSON format (Make sure your Web Token is included in the header)
+    * Example body: `{
+   "AnimalId": 1,
+   "Name": "toby",
+   "Species":"dog",
+   "Age" : 5
+   "Gender": "female"
+   "Personality" : "timid"  
+}`
+ * Sed the request to create an entry in the database
+
+Users are able to make PUT calls that can edit already existing entries
+  * To do so make sure the call you are making is a PUT call
+  * Make the body of the call raw and in JSON format (Make sure your Web Token is included in the header)
+  * Edit the body of the entry your are targeting
+  * Send the request to update an entry in the database
+
+User are able to make DELETE calls to remove already existing entries
+  * To do so make sure the call you are making is a DELETE call
+  * In the URL of the call enter the id of the animal you would like to delete
+    * Example Call: `http://localhost:5000/api/animals/1` will delete the animal with an Id of 1
+  * Send the request to delete an entry in the database
 
 ## Known Bugs
 
