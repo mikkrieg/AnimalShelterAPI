@@ -49,6 +49,42 @@ _This project is the backend of an API for an animal shelter. It provides abilit
 
 ## How to use the API
 ### Login/Registration
+Users must register and login with the API to be authorized to make calls
+#### Registration
+  * To register begin making a POST call to the register URL
+    * Example Call: `http://localhost:5000/api/authmanagement/register`
+  * Make the body of this call raw and in JSON format
+    * Example Body: `{
+    "UserName" : "Your_Username",
+    "Email" : "Your_Email",
+    "Password": "Your_Password"
+    }`
+      * The password must: 
+        * Be at least six characters
+        * Have at least one non alphanumeric character
+        * Have at least one lowercase letter (a-z)
+        * Have at least one digit (0-9)
+        * Have at least one uppercase letter (A-Z)
+  * Send the request to register yourself as a user
+#### Login
+  * To login begin making a POST call to the login URL
+    * Example Call: `http://localhost:5000/api/authmanagement/login`
+  * Make the body of this call raw and in JSON format 
+    * Example Body: `{
+    "Email" : "Email_You_Registered_With",
+    "Password": "Password_You_Registered_With"
+    }`
+  * Send the request
+  * If the response is successful a token should be returned 
+#### How to use token
+  * Copy this token and paste it into your headers
+  * The Key for this header is: `Authorization`
+  * The Value for this header is: 
+  `Bearer
+  Your_Copied_Token` (Make sure there is a space between `Bearer` and the token)
+
+
+  
 ### Queries
 The API accepts several different GET queries once a user is registered and logged in:
 * `?name=insert_pet_name_here` : returns animal(s) with specific name
@@ -69,7 +105,7 @@ Users are also able to make generic GET calls
 ### Create, Update and Delete entries  
 Users are able to make a POST call that can create animals 
   * To do so make sure the call you are making is a POST call
-  * Next make the body of the call raw and in JSON format (Make sure your Web Token is included in the header)
+  * Next make the body of the call raw and in JSON format (Make sure your Web Token is included in the [header](#how-to-use-token))
     * Example body: `{
    "AnimalId": 1,
    "Name": "toby",
@@ -82,7 +118,7 @@ Users are able to make a POST call that can create animals
 
 Users are able to make PUT calls that can edit already existing entries
   * To do so make sure the call you are making is a PUT call
-  * Make the body of the call raw and in JSON format (Make sure your Web Token is included in the header)
+  * Make the body of the call raw and in JSON format (Make sure your Web Token is included in the [header](#how-to-use-token))
   * Edit the body of the entry your are targeting
   * Send the request to update an entry in the database
 
@@ -90,7 +126,7 @@ User are able to make DELETE calls to remove already existing entries
   * To do so make sure the call you are making is a DELETE call
   * In the URL of the call enter the id of the animal you would like to delete
     * Example Call: `http://localhost:5000/api/animals/1` will delete the animal with an Id of 1
-  * Send the request to delete an entry in the database
+  * Send the request to delete an entry in the database (Make sure your Web Token is included in the [header](#how-to-use-token)
 
 ## Known Bugs
 
