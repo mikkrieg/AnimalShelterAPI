@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using TodoApp.Configuration;
+using AnimalShelter.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using AnimalShelter.Models;
@@ -55,6 +55,10 @@ namespace AnimalShelter
           RequireExpirationTime = false
         };
       });
+
+      services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AnimalShelterContext>();
+
+      services.AddControllers();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -70,10 +74,10 @@ namespace AnimalShelter
       app.UseAuthentication();
       app.UseAuthorization();
 
-      app.useEndpoints(endpoints =>
+      app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
-      })
+      });
     }
   }
 }
