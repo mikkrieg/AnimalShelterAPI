@@ -56,5 +56,24 @@ namespace AnimalShelter
         };
       });
     }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+      if(env.IsDevelopment())
+      {
+        app.UseDeveloperExceptionPage();
+      }
+
+      app.UseHttpsRedirection();
+
+      app.UseRouting();
+      app.UseAuthentication();
+      app.UseAuthorization();
+
+      app.useEndpoints(endpoints =>
+      {
+        endpoints.MapControllers();
+      })
+    }
   }
 }
