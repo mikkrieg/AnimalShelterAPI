@@ -76,7 +76,7 @@ Users must register and login with the API to be authorized to make calls
     "Password": "Password_You_Registered_With"
     }`
   * Send the request
-  * If the response is successful a token should be returned in the body of the response
+  * If the request is successful, a token should be returned in the body of the response
 #### How to use the token
   * Copy this token and paste it into your headers
   * The Key for this header is: `Authorization`
