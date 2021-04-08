@@ -89,13 +89,13 @@ Users must register and login with the API to be authorized to make calls
 ### Queries
 The API accepts several different GET queries once a user is registered and logged in:
 * `?name=insert_pet_name_here` : returns animal(s) with specific name
-  * Example Call: `http://localhost:5000/api/animals/?name="toby"`
+  * Example Call: `http://localhost:5000/api/animals/?name=toby`
 * `?gender=insert_gender_here` : returns animals of a specific gender
-  * Example Call: `http://localhost:5000/api/animals/?gender="female"`
+  * Example Call: `http://localhost:5000/api/animals/?gender=female`
 * `?species=insert_species_here` : returns animals of a specific species
-  * Example Call: `http://localhost:5000/api/animals/?species="dog"`
+  * Example Call: `http://localhost:5000/api/animals/?species=dog`
 * `?personality=insert_personality_here` : returns all animals with a certain personality
-  * Example Call: `http://localhost:5000/api/animals/?personality="sweet"`    
+  * Example Call: `http://localhost:5000/api/animals/?personality=sweet`    
 
 Users are also able to make generic GET calls
 * A call without a query will return all animals
@@ -111,8 +111,8 @@ Users are able to make a POST call that can create animals
    "AnimalId": 1,
    "Name": "toby",
    "Species":"dog",
-   "Age" : 5
-   "Gender": "female"
+   "Age" : 5,
+   "Gender": "female",
    "Personality" : "timid"  
 }`
  * Send the request to create an entry in the database
