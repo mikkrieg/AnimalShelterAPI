@@ -106,7 +106,7 @@ Users are also able to make generic GET calls
 ### Create, Update and Delete entries  
 Users are able to make a POST call that can create animals 
   * To do so make sure the call you are making is a POST call
-  * Next make the body of the call raw and in JSON format (Make sure your Web Token is included in the [header](#How-to-use-token))
+  * Next make the body of the call raw and in JSON format (Make sure your Web Token is included in the [header](#how-to-use-the-token))
     * Example body: `{
    "AnimalId": 1,
    "Name": "toby",
@@ -119,7 +119,7 @@ Users are able to make a POST call that can create animals
 
 Users are able to make PUT calls that can edit already existing entries
   * To do so make sure the call you are making is a PUT call
-  * Make the body of the call raw and in JSON format (Make sure your Web Token is included in the [header](#How-to-use-token))
+  * Make the body of the call raw and in JSON format (Make sure your Web Token is included in the [header](#how-to-use-the-token))
   * Edit the values in the body of the entry your are targeting
   * Send the request to update that entry in the database
 
@@ -127,7 +127,7 @@ Users are able to make DELETE calls to remove already existing entries
   * To do so make sure the call you are making is a DELETE call
   * In the URL of the call enter the id of the animal you would like to delete
     * Example Call: `http://localhost:5000/api/animals/1` will delete the animal with an Id of 1
-  * Send the request to delete an entry in the database (Make sure your Web Token is included in the [header](#How-to-use-token))
+  * Send the request to delete an entry in the database (Make sure your Web Token is included in the [header](#how-to-use-the-token))
 
 ## Known Bugs
 
